@@ -1,172 +1,242 @@
-# StudyStack - Premium Student Resource & Task Manager
+<div align="center">
 
-StudyStack is a modern web application designed for students to organize, track, and conquer their academic materials and tasks. Built with a FastAPI backend and a React (Vite) frontend, StudyStack combines structured study resource management with dynamic dashboards, progress indicators, and task trackers under a unified glassmorphic dark theme.
+# 📚 StudyStack
 
----
+### Your Personal Academic Command Center
 
-## Key Features
+[![Built with React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![Clerk Auth](https://img.shields.io/badge/Clerk-Auth-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.com)
+[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
 
-### 1. Resource Management Hub
-- **Study Materials Tracker**: Add, edit, and organize study links (YouTube videos, GitHub repositories, PDFs, Google Drive documents, or web pages).
-- **Custom Categorization**: Create academic subjects with custom colors to organize your materials.
-- **Status Indicators**: Star favorite resources, group materials under folders, and mark documents as read or completed.
-- **File Uploads**: Upload documents directly to the local server or cloud storage.
-
-### 2. Analytical Dashboard
-- **Stats Row**: Real-time counters for Total Materials, Starred Materials, Read/Completed Materials, and Uploaded Documents.
-- **Subjects Distribution Bar Chart**: A custom-designed vertical bar chart visualizes material concentration per subject. Features interactive hover tooltips and dynamic grid lines indicating percentage scales.
-- **Interactive Progress Card**: A circular radial progress indicator with a toggle dropdown to switch between **Task Progress** and **Monthly Target Progress**.
-
-### 3. Checklist Systems
-- **Study Tasks (To-Do List)**: A daily checklist for active study items (e.g., "Review operating systems lecture notes") with live progress tracking and CRUD capabilities.
-- **Monthly Targets Checklist**: A distinct checklist scoped to the active calendar month, enabling students to set and check off broader monthly milestones.
-
-### 4. Authentication
-- **Secure Access**: Powered by Clerk Auth (`@clerk/clerk-react`) for secure user onboarding, sign-in, and auth-token validation on the backend.
-
-### 5. Backend Architecture
-- **API Engine**: Engineered with FastAPI for high-throughput async processing and clean Pydantic model validations.
-- **Dual-Database Mode**:
-  - **Supabase Connected**: Performs live SQL queries on a Supabase PostgreSQL database when cloud credentials are provided.
-  - **Offline Fallback**: Automatically falls back to a local JSON database (`local_db.json`) when offline or during sandbox testing, ensuring zero setup friction.
+**Stop losing study links in 47 browser tabs.** StudyStack is a full-stack web app that lets students organize study resources, track daily tasks, set monthly academic targets, and visualize progress — all from a single, beautiful dark-themed dashboard.
 
 ---
 
-## Tech Stack
+[Features](#-features) · [Tech Stack](#-tech-stack) · [Quick Start](#-quick-start) · [Project Structure](#-project-structure) · [Database Setup](#-database-setup) · [API Reference](#-api-reference) · [Contributing](#-contributing)
 
-### Frontend
-- **Core**: React 19, Vite
-- **Authentication**: Clerk Authentication
-- **Icons**: Lucide React
-- **Styling**: Modern Vanilla CSS (Glassmorphism, custom HSL color systems, responsive flex/grid layouts)
-
-### Backend
-- **Framework**: FastAPI
-- **Database / BaaS**: Supabase Python Client (PostgreSQL) with a Local JSON fallback adapter
-- **Server**: Uvicorn
-- **Validation**: Pydantic v2
+</div>
 
 ---
 
-## Project Structure
+## ✨ Features
 
-```text
-Resource management/
-├── backend/
-│   ├── app/
-│   │   ├── auth.py          # Clerk JWT validation middleware
-│   │   ├── config.py        # Environment configurations (Clerk, Supabase, Mock Mode)
-│   │   ├── database.py      # Dual-mode database adapter (Supabase SQL & local JSON fallback)
-│   │   └── main.py          # FastAPI application routes and Pydantic schemas
-│   ├── uploads/             # Directory for locally uploaded student materials
-│   ├── local_db.json        # Offline database mockup file
-│   └── requirements.txt     # Python dependencies
-├── frontend/
-│   ├── src/
-│   │   ├── components/      # UI components (StatsBanner, MaterialsList, Sidebar, etc.)
-│   │   ├── pages/           # Pages (LandingPage, DashboardPage, SignInPage)
-│   │   ├── App.jsx          # Root application layout, auth wrapper, and state orchestration
-│   │   ├── api.js           # API client mapping backend endpoints
-│   │   ├── index.css        # Core design system tokens and glassmorphic stylesheet
-│   │   └── main.jsx         # React DOM mount point
-│   ├── package.json         # Frontend Node.js dependencies
-│   └── vite.config.js       # Vite configuration
-└── README.md                # Project documentation
+<table>
+<tr>
+<td width="50%">
+
+### 📊 Analytics Dashboard
+- Real-time stat cards (Total, Starred, Completed, Uploaded)
+- Interactive **vertical bar chart** showing material distribution across subjects with hover tooltips
+- Circular **radial progress ring** with dropdown toggle between Task Progress & Monthly Progress
+
+</td>
+<td width="50%">
+
+### 📁 Resource Manager
+- Save links from **YouTube, GitHub, Google Drive, websites, PDFs** and more
+- Organize into color-coded **subjects** and tag with **creators**
+- Star favorites, mark as read, add personal notes
+- **Direct file uploads** with progress indicator
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### ✅ Study Tasks (To-Do)
+- Daily task checklist with inline add/delete/toggle
+- Linear progress bar tracks completion percentage
+- Feeds into the dashboard's radial progress ring
+- Persistent across sessions via Supabase
+
+</td>
+<td width="50%">
+
+### 🎯 Monthly Targets
+- Month-scoped goal tracker that resets per calendar month
+- Independent progress bar and completion counter
+- Separate radial view in the progress card dropdown
+- Perfect for exam prep milestones and reading goals
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 👥 Creators Hub
+- Track content creators you learn from (YouTube, Instagram, LinkedIn, Medium)
+- Store handles and profile URLs
+- Link creators directly to saved materials
+
+</td>
+<td width="50%">
+
+### 🔐 Authentication & Security
+- Powered by **Clerk** for sign-up, sign-in, and session management
+- JWT token verification on every backend request
+- User-scoped data isolation — your resources are yours alone
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎨 Design Philosophy
+
+StudyStack isn't just functional — it's designed to feel **premium**.
+
+- 🌑 **Dark glassmorphic theme** with layered transparency and subtle borders
+- 🎨 **Custom HSL color system** — no generic reds and blues, everything is curated
+- ✨ **Micro-animations** on hover, transitions on data changes, smooth state shifts
+- 📐 **Responsive grid layouts** that adapt from wide monitors to laptop screens
+- 🔤 **Modern typography** with a dual font-family system (headers vs body)
+
+---
+
+## 🛠 Tech Stack
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        FRONTEND                             │
+│                                                             │
+│   React 19  ·  Vite 8  ·  Vanilla CSS  ·  Lucide Icons     │
+│   Clerk React SDK  ·  Glassmorphic Design System            │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│                        BACKEND                              │
+│                                                             │
+│   FastAPI  ·  Uvicorn  ·  Pydantic v2  ·  Python 3.9+      │
+│   Supabase Python Client  ·  python-jose (JWT)              │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│                       DATABASE                              │
+│                                                             │
+│   Supabase (PostgreSQL)  ·  Local JSON fallback adapter     │
+│   Dual-mode: auto-detects cloud vs offline                  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.9 or higher
-- Node.js 18 or higher
+
+| Tool | Version |
+|------|---------|
+| Python | 3.9+ |
+| Node.js | 18+ |
+| npm | 9+ |
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/your-username/studystack.git
+cd studystack
+```
+
+### 2️⃣ Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+Create `backend/.env`:
+
+```env
+# Clerk Auth
+CLERK_JWKS_URL=https://your-clerk-instance.clerk.accounts.dev/.well-known/jwks.json
+
+# Supabase (leave empty to use local JSON fallback)
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your-supabase-anon-key
+```
+
+Start the API server:
+
+```bash
+uvicorn app.main:app --reload --port 8000
+```
+
+### 3️⃣ Frontend Setup
+
+```bash
+cd ../frontend
+npm install
+```
+
+Create `frontend/.env.local`:
+
+```env
+VITE_CLERK_PUBLISHABLE_KEY=pk_test_your-key-here
+VITE_API_URL=http://localhost:8000
+```
+
+Start the dev server:
+
+```bash
+npm run dev
+```
+
+### 4️⃣ Open in browser
+
+Navigate to `http://localhost:5173` — sign in and start stacking! 🎉
 
 ---
 
-### Backend Setup
+## 📂 Project Structure
 
-1. **Navigate to the backend directory**:
-   ```bash
-   cd backend
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure environment variables**:
-   Create a `.env` file in the `backend/` directory:
-   ```env
-   # Clerk configurations
-   CLERK_API_URL=https://api.clerk.com/v1
-   CLERK_JWKS_URL=https://your-clerk-instance.clerk.accounts.dev/.well-known/jwks.json
-
-   # Supabase configurations (Optional: omission triggers local JSON database mode)
-   SUPABASE_URL=https://your-supabase-project.supabase.co
-   SUPABASE_KEY=your-supabase-anon-key
-   ```
-
-4. **Run the API server**:
-   ```bash
-   uvicorn app.main:app --reload --port 8000
-   ```
-   The backend API will run on `http://localhost:8000`.
-
----
-
-### Frontend Setup
-
-1. **Navigate to the frontend directory**:
-   ```bash
-   cd ../frontend
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Configure environment variables**:
-   Create a `.env.local` file in the `frontend/` directory:
-   ```env
-   VITE_CLERK_PUBLISHABLE_KEY=pk_test_...
-   VITE_API_URL=http://localhost:8000
-   ```
-
-4. **Run the frontend development server**:
-   ```bash
-   npm run dev
-   ```
-   Vite will serve the frontend locally (typically on `http://localhost:5173`).
+```
+studystack/
+│
+├── backend/
+│   ├── app/
+│   │   ├── auth.py            # Clerk JWT verification middleware
+│   │   ├── config.py          # Environment variable loader
+│   │   ├── database.py        # Dual-mode DB adapter (Supabase ↔ Local JSON)
+│   │   └── main.py            # FastAPI routes, Pydantic schemas, CORS config
+│   ├── uploads/               # Local file upload storage
+│   ├── local_db.json          # Offline fallback database
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── DashboardHeader.jsx   # Top bar with search & filters
+│   │   │   ├── MaterialsList.jsx     # Resource cards grid view
+│   │   │   ├── Modals.jsx            # Add/Edit/View material dialogs
+│   │   │   ├── Sidebar.jsx           # Navigation sidebar with Clerk user button
+│   │   │   └── StatsBanner.jsx       # Dashboard analytics, charts & task lists
+│   │   ├── pages/
+│   │   │   ├── DashboardPage.jsx     # Main authenticated dashboard
+│   │   │   ├── LandingPage.jsx       # Public marketing landing page
+│   │   │   └── SignInPage.jsx        # Clerk-powered sign-in page
+│   │   ├── App.jsx                   # Root component, auth state, data orchestration
+│   │   ├── api.js                    # API client (all fetch calls to backend)
+│   │   ├── index.css                 # Full design system (tokens, components, animations)
+│   │   └── main.jsx                  # React DOM entry point
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
+```
 
 ---
 
-## Database Schema (SQL)
-To initialize the Supabase database, run the following queries in your Supabase SQL Editor:
+## 🗄 Database Setup
+
+Run these queries in your **Supabase SQL Editor** to initialize the schema:
+
+<details>
+<summary><strong>📋 Click to expand full SQL schema</strong></summary>
 
 ```sql
--- 1. Create the 'todos' table
-create table if not exists public.todos (
-  id uuid default gen_random_uuid() primary key,
-  user_id text not null,
-  text text not null,
-  is_completed boolean default false not null,
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
-
--- 2. Create the 'monthly_targets' table
-create table if not exists public.monthly_targets (
-  id uuid default gen_random_uuid() primary key,
-  user_id text not null,
-  month text not null, -- Format: "YYYY-MM" (e.g., "2026-06")
-  text text not null,
-  is_completed boolean default false not null,
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
-
--- 3. Create the 'subjects' table
+-- Subjects table
 create table if not exists public.subjects (
   id uuid default gen_random_uuid() primary key,
   user_id text not null,
@@ -175,22 +245,77 @@ create table if not exists public.subjects (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- 4. Create the 'materials' table
+-- Materials table
 create table if not exists public.materials (
   id uuid default gen_random_uuid() primary key,
   user_id text not null,
   title text not null,
-  type text not null, -- 'youtube', 'github', 'pdf', 'website', etc.
+  type text not null,
   url text not null,
   description text,
   subject_id uuid references public.subjects(id) on delete set null,
+  creator_id uuid,
   is_favorite boolean default false not null,
   is_read boolean default false not null,
+  tags text[] default '{}',
+  notes text,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
+
+-- To-do tasks table
+create table if not exists public.todos (
+  id uuid default gen_random_uuid() primary key,
+  user_id text not null,
+  text text not null,
+  is_completed boolean default false not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Monthly targets table
+create table if not exists public.monthly_targets (
+  id uuid default gen_random_uuid() primary key,
+  user_id text not null,
+  month text not null,
+  text text not null,
+  is_completed boolean default false not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Disable RLS for development (enable + add policies for production)
+alter table public.subjects disable row level security;
+alter table public.materials disable row level security;
+alter table public.todos disable row level security;
+alter table public.monthly_targets disable row level security;
 ```
+
+</details>
+
+> **⚠️ Production Note:** Enable Row-Level Security and create proper policies before deploying. The above disables RLS for local development convenience.
 
 ---
 
-## Notes
-> - **Supabase Row-Level Security (RLS)**: Ensure Row-Level Security (RLS) is disabled for these tables if using the standard client key without policies, or configure policies to permit authenticated Clerk users.
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+**Built with ☕ and determination by Rushang**
+
+*If this helped you organize your study chaos, consider giving it a ⭐*
+
+</div>
