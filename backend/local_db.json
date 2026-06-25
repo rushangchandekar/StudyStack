@@ -1,0 +1,264 @@
+{
+    "subjects": [
+        {
+            "id": "s1",
+            "user_id": "mock-user-123",
+            "name": "Computer Networks",
+            "color": "#8B5CF6",
+            "created_at": "2026-06-23T22:40:51.445292"
+        },
+        {
+            "id": "s2",
+            "user_id": "mock-user-123",
+            "name": "DBMS",
+            "color": "#3B82F6",
+            "created_at": "2026-06-23T22:40:51.445302"
+        },
+        {
+            "id": "s3",
+            "user_id": "mock-user-123",
+            "name": "Web Development",
+            "color": "#10B981",
+            "created_at": "2026-06-23T22:40:51.445305"
+        },
+        {
+            "id": "s4",
+            "user_id": "mock-user-123",
+            "name": "Placement Prep",
+            "color": "#F59E0B",
+            "created_at": "2026-06-23T22:40:51.445308"
+        },
+        {
+            "id": "d9981bd1-2330-4c8a-a0db-c473f2fce425",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "name": "DSA",
+            "color": "#8B5CF6",
+            "created_at": "2026-06-25T16:34:23.646274"
+        },
+        {
+            "id": "c05bd951-0a5b-4865-95b3-de4d95497d72",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "name": "Data Analyst",
+            "color": "#8B5CF6",
+            "created_at": "2026-06-25T16:34:32.130725"
+        },
+        {
+            "id": "ba742987-00dc-4747-8901-202204e43306",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "name": "Placement",
+            "color": "#8B5CF6",
+            "created_at": "2026-06-25T16:35:06.595313"
+        }
+    ],
+    "creators": [
+        {
+            "id": "c1",
+            "user_id": "mock-user-123",
+            "name": "Love Babbar",
+            "platform": "YouTube",
+            "handle": "@lovebabbar",
+            "profile_url": "https://youtube.com/@lovebabbar",
+            "created_at": "2026-06-23T22:40:51.445311"
+        },
+        {
+            "id": "c2",
+            "user_id": "mock-user-123",
+            "name": "Striver (takeUforward)",
+            "platform": "YouTube",
+            "handle": "@takeUforward",
+            "profile_url": "https://youtube.com/@takeuforward",
+            "created_at": "2026-06-23T22:40:51.445314"
+        },
+        {
+            "id": "c3",
+            "user_id": "mock-user-123",
+            "name": "Tech Insider",
+            "platform": "Instagram",
+            "handle": "@tech_insider",
+            "profile_url": "https://instagram.com",
+            "created_at": "2026-06-23T22:40:51.445316"
+        },
+        {
+            "id": "9a64f496-eadb-4b1f-af4e-0f81a4813c09",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "name": "Apna College",
+            "platform": "YouTube",
+            "handle": null,
+            "profile_url": null,
+            "created_at": "2026-06-25T16:33:45.934420"
+        }
+    ],
+    "materials": [
+        {
+            "id": "m1",
+            "user_id": "mock-user-123",
+            "title": "Complete DSA Placement Sheet",
+            "type": "google_drive",
+            "url": "https://drive.google.com/drive/folders/123_placeholder",
+            "description": "Comprehensive interview preparation sheet containing 450+ solved DSA problems in C++ and Java.",
+            "subject_id": "s4",
+            "creator_id": "c1",
+            "is_favorite": true,
+            "is_read": false,
+            "tags": [
+                "DSA",
+                "Placements",
+                "Interview"
+            ],
+            "notes": "Must complete arrays and trees section first.",
+            "created_at": "2026-06-23T22:40:51.445319"
+        },
+        {
+            "id": "m2",
+            "user_id": "mock-user-123",
+            "title": "SQL Cheat Sheet for Developers",
+            "type": "pdf",
+            "url": "https://example.com/sql_cheat_sheet.pdf",
+            "description": "A quick-reference sheet covering SQL joins, aggregates, subqueries, and window functions.",
+            "subject_id": "s2",
+            "creator_id": "c2",
+            "is_favorite": false,
+            "is_read": true,
+            "tags": [
+                "SQL",
+                "Cheat Sheet",
+                "Database"
+            ],
+            "notes": "Keep printed on desk.",
+            "created_at": "2026-06-23T22:40:51.445323"
+        },
+        {
+            "id": "m3",
+            "user_id": "mock-user-123",
+            "title": "React 19 Server Components Explained",
+            "type": "website",
+            "url": "https://react.dev",
+            "description": "Official guide and breakdown of React Server Components (RSC), hydration, and data fetching.",
+            "subject_id": "s3",
+            "creator_id": "c3",
+            "is_favorite": true,
+            "is_read": false,
+            "tags": [
+                "React",
+                "Frontend",
+                "Web Dev"
+            ],
+            "notes": "Explains how server components differ from client components.",
+            "created_at": "2026-06-23T22:40:51.445326"
+        },
+        {
+            "id": "0b14d0e2-c252-4d05-aafe-6f77b281c4c2",
+            "created_at": "2026-06-25T16:24:53.490265",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "title": "Placement material",
+            "type": "google_drive",
+            "url": "https://drive.google.com/drive/mobile/folders/1Txer4_U8Q7NOeBCKLZyBLf5rhhwP-lt0?fbclid=PAdGRzdgSWWlNPTUNQBI1BpWV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpyxEgW350iO7Le2oTPZgja2u7xddDydJPnFLsIPdz5JD3uavE-HFswoRuZ8t_aem_3QnG70wS_IGtjHOgggplRQ",
+            "description": "",
+            "subject_id": null,
+            "creator_id": null,
+            "is_favorite": false,
+            "is_read": true,
+            "tags": [],
+            "notes": ""
+        },
+        {
+            "id": "315b79a2-d653-4717-84d2-7736ce91a565",
+            "created_at": "2026-06-25T16:27:31.552275",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "title": "Parth creator",
+            "type": "website",
+            "url": "https://linktr.ee/precisely.parth?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASWgh1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAacvaWIUv2PCkRijishBOyyfBng4MtQoQwg-1vXG5K8ITMDkaNba087CLa8Q_w_aem_V0xM1MN39IFDQpOBCtAybg",
+            "description": "",
+            "subject_id": null,
+            "creator_id": null,
+            "is_favorite": false,
+            "is_read": false,
+            "tags": [],
+            "notes": ""
+        },
+        {
+            "id": "7f03be15-d7d1-4efb-8d44-306b7c931dad",
+            "created_at": "2026-06-25T16:28:13.940494",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "title": "Deloitte_fresher_playbook",
+            "type": "pdf",
+            "url": "http://localhost:8000/uploads/deloitte_fresher_playbook (2).pdf",
+            "description": "",
+            "subject_id": null,
+            "creator_id": null,
+            "is_favorite": false,
+            "is_read": false,
+            "tags": [],
+            "notes": ""
+        },
+        {
+            "id": "34859ee3-ef48-48dc-aca0-54a729471442",
+            "created_at": "2026-06-25T20:39:16.196926",
+            "user_id": "user_3EzIk0MEp04a0dqZ1UGG4hP49DL",
+            "title": "DSA one shot",
+            "type": "youtube",
+            "url": "https://www.youtube.com/watch?v=9SIjWX2NhPo",
+            "description": "",
+            "subject_id": "d9981bd1-2330-4c8a-a0db-c473f2fce425",
+            "creator_id": null,
+            "is_favorite": false,
+            "is_read": false,
+            "tags": [],
+            "notes": ""
+        }
+    ],
+    "jobs": [
+        {
+            "id": "j1",
+            "user_id": "mock-user-123",
+            "company": "Google",
+            "title": "Software Engineering Intern",
+            "url": "https://careers.google.com/jobs/results/123",
+            "deadline": "2026-06-27T23:59:38.212455",
+            "status": "saved",
+            "reminder_email": "rushang@student.com",
+            "enable_reminders": true,
+            "notes": "Need to practice graph and dynamic programming questions before applying.",
+            "created_at": "2026-06-25T20:59:38.212455"
+        },
+        {
+            "id": "j2",
+            "user_id": "mock-user-123",
+            "company": "Microsoft",
+            "title": "Frontend Developer",
+            "url": "https://careers.microsoft.com",
+            "deadline": "2026-06-30T20:59:38.212455",
+            "status": "applied",
+            "reminder_email": "rushang@student.com",
+            "enable_reminders": true,
+            "notes": "Applied via referral. Interview prep focused on React 19.",
+            "created_at": "2026-06-25T20:59:38.212455"
+        },
+        {
+            "id": "j3",
+            "user_id": "mock-user-123",
+            "company": "Stripe",
+            "title": "Full Stack Engineer",
+            "url": "https://stripe.com/jobs",
+            "deadline": "2026-06-24T20:59:38.212455",
+            "status": "interviewing",
+            "reminder_email": "rushang@student.com",
+            "enable_reminders": false,
+            "notes": "Passed technical screening. Next is system design round.",
+            "created_at": "2026-06-25T20:59:38.212455"
+        },
+        {
+            "id": "1513c76a-56a1-4589-9c9c-df0c7f919858",
+            "created_at": "2026-06-25T21:00:45.711639",
+            "user_id": "mock-user-123",
+            "company": "Approaching Corp",
+            "title": "Frontend Developer",
+            "url": "https://careers.google.com/jobs/results/67890",
+            "deadline": "2026-06-25T21:10:00",
+            "status": "applied",
+            "reminder_email": "candidate@example.com",
+            "enable_reminders": true,
+            "notes": "Approaching deadline UAT test."
+        }
+    ]
+}
