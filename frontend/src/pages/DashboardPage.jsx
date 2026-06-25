@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Plus, Users, Folder, Trash2, ExternalLink, Info, CheckCircle2 } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import DashboardHeader from '../components/DashboardHeader';
@@ -117,6 +117,8 @@ export default function DashboardPage({
     newCrPlatform, setNewCrPlatform, newCrHandle, setNewCrHandle, newCrProfileUrl, setNewCrProfileUrl
   };
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="app-container bg-gradient-glow">
       {/* Dev preview alert banner */}
@@ -126,16 +128,23 @@ export default function DashboardPage({
           <span>Running in Offline Preview Mode. Data is saving locally to your browser storage. Connect your Python Backend to unlock PostgreSQL & Cloud Storage!</span>
         </div>
       )}
+
+      {/* Mobile sidebar overlay */}
+      <div 
+        className={`sidebar-overlay ${mobileMenuOpen ? 'visible' : ''}`} 
+        onClick={() => setMobileMenuOpen(false)} 
+      />
       
       {/* 1. Left Sidebar */}
       <Sidebar 
         dbStatus={dbStatus} 
         activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
+        setActiveTab={(tab) => { setActiveTab(tab); setMobileMenuOpen(false); }} 
         isMockMode={isMockMode} 
         user={user} 
         isDarkMode={isDarkMode}
         setView={setView}
+        mobileMenuOpen={mobileMenuOpen}
       />
       
       {/* 2. Main Wrapper */}
@@ -151,6 +160,7 @@ export default function DashboardPage({
           setIsDarkMode={setIsDarkMode}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          onMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         />
         
         {/* Success notifications popup */}

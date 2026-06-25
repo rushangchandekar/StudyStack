@@ -2,7 +2,7 @@ import React from 'react';
 import { Sparkles, TrendingUp, BookOpen, Users, Folder } from 'lucide-react';
 import { UserButton } from '@clerk/clerk-react';
 
-export default function Sidebar({ dbStatus, activeTab, setActiveTab, isMockMode, user, isDarkMode, setView }) {
+export default function Sidebar({ dbStatus, activeTab, setActiveTab, isMockMode, user, isDarkMode, setView, mobileMenuOpen }) {
   const userButtonAppearance = {
     elements: {
       userButtonPopoverCard: {
@@ -51,7 +51,7 @@ export default function Sidebar({ dbStatus, activeTab, setActiveTab, isMockMode,
   };
 
   return (
-      <aside className="sidebar" style={{ paddingTop: dbStatus === 'offline' ? '42px' : '24px' }}>
+      <aside className={`sidebar ${mobileMenuOpen ? 'mobile-open' : ''}`} style={{ paddingTop: dbStatus === 'offline' ? '42px' : '24px' }}>
         <div 
           className="sidebar-brand" 
           onClick={() => setView('landing')} 

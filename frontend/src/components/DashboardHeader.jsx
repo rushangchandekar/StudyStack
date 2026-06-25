@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Plus, Sun, Moon } from 'lucide-react';
+import { Search, Plus, Sun, Moon, Menu } from 'lucide-react';
 
 export default function DashboardHeader({ 
   searchQuery, 
@@ -10,10 +10,15 @@ export default function DashboardHeader({
   isDarkMode,
   setIsDarkMode,
   activeTab,
-  setActiveTab 
+  setActiveTab,
+  onMenuToggle
 }) {
   return (
         <header className="header-bar">
+          <button className="mobile-menu-btn" onClick={onMenuToggle} aria-label="Toggle menu">
+            <Menu size={20} />
+          </button>
+
           <div className="search-container">
             <Search size={18} className="text-secondary" />
             <input 
@@ -60,7 +65,7 @@ export default function DashboardHeader({
               }}
             >
               <Plus size={18} />
-              Add Material
+              <span className="btn-text-desktop">Add Material</span>
             </button>
             
             {/* DB Status Badge */}
@@ -72,7 +77,9 @@ export default function DashboardHeader({
                 borderRadius: '50%', 
                 backgroundColor: dbStatus === 'cloud_db' ? 'var(--success)' : dbStatus === 'local_db' ? '#a78bfa' : '#f59e0b'
               }}></span>
-              {dbStatus === 'cloud_db' ? 'Cloud Server' : dbStatus === 'local_db' ? 'Dev Local' : 'Browser DB'}
+              <span className="db-status-text">
+                {dbStatus === 'cloud_db' ? 'Cloud Server' : dbStatus === 'local_db' ? 'Dev Local' : 'Browser DB'}
+              </span>
             </div>
           </div>
         </header>

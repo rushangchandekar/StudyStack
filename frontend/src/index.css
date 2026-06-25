@@ -3881,36 +3881,271 @@ div[style*="background"][style*="45deg"]::before {
 }
 
 /* --- Responsive Helpers --- */
-@media (max-width: 768px) {
-  :root {
-    --sidebar-width: var(--sidebar-collapsed-width);
+
+/* Hamburger menu button - hidden by default, shown on mobile */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.mobile-menu-btn:hover {
+  background-color: rgba(124, 58, 237, 0.06);
+  border-color: var(--accent-purple);
+}
+
+/* Mobile sidebar overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* ========== TABLET (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .analytics-section {
+    grid-template-columns: 1fr;
   }
-  .sidebar-title, .sidebar-brand span, .sidebar-item span, .sidebar-user span {
-    display: none;
+
+  .page-container {
+    padding: 24px 20px;
   }
-  .sidebar-brand {
-    justify-content: center;
-    padding: 8px 0 24px 0;
-  }
-  .sidebar-item {
-    justify-content: center;
-    padding: 12px;
-  }
-  .sidebar-user {
-    justify-content: center;
-  }
-  .main-wrapper {
-    margin-left: var(--sidebar-collapsed-width);
-  }
+
   .header-bar {
     padding: 0 20px;
   }
+
   .search-container {
-    width: 200px;
+    width: 260px;
   }
+
+  .materials-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* ========== MOBILE (max-width: 768px) ========== */
+@media (max-width: 768px) {
+
+  /* --- Hamburger Button Visible --- */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* --- Sidebar becomes slide-out drawer --- */
+  .sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-width);
+    box-shadow: none;
+    z-index: 200;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar-overlay.visible {
+    display: block;
+  }
+
+  /* --- Main wrapper takes full width --- */
+  .main-wrapper {
+    margin-left: 0 !important;
+  }
+
+  /* --- Header --- */
+  .header-bar {
+    padding: 0 16px;
+    height: 60px;
+    gap: 8px;
+  }
+
+  .search-container {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    padding: 8px 12px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  /* Hide "Add Material" text on mobile, keep icon */
+  .header-actions .btn-primary span.btn-text-desktop {
+    display: none;
+  }
+
+  /* --- Page Container --- */
   .page-container {
-    padding: 20px;
+    padding: 16px 14px;
   }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  /* --- Dashboard Stats Grid --- */
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .stat-card {
+    gap: 12px;
+  }
+
+  .stat-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .glass-card {
+    padding: 16px;
+  }
+
+  /* --- Analytics Section (stacks vertically) --- */
+  .analytics-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* --- Materials Grid --- */
+  .materials-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* --- Filters Row --- */
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .filters-group {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .select-filter {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  /* --- View header --- */
+  .view-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  /* --- Modals: full screen on mobile --- */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: 24px 18px;
+    animation: slideUpMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* --- Form elements --- */
+  .form-input, .form-select, .form-textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+
+  /* --- Buttons --- */
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* --- DB Status Badge: hide text on mobile --- */
+  .header-actions .db-status-text {
+    display: none;
+  }
+}
+
+/* ========== SMALL MOBILE (max-width: 480px) ========== */
+@media (max-width: 480px) {
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    gap: 10px;
+  }
+
+  .page-title {
+    font-size: 1.35rem;
+  }
+
+  .glass-card {
+    padding: 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .header-bar {
+    height: 56px;
+    padding: 0 12px;
+  }
+
+  .page-container {
+    padding: 14px 10px;
+  }
+
+  /* Search: compact */
+  .search-container {
+    padding: 6px 10px;
+  }
+
+  .search-input {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile slide-up animation for modals */
+@keyframes slideUpMobile {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 
@@ -7547,6 +7782,219 @@ body.dark-mode .sidebar-item:hover:not(.active) {
 
 .ss-landing.ss-dark .ss-showcase-sub {
   color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   Premium Mobile Optimization for Landing Page Dashboard Mockups
+   Ensures that simulated dashboard screens render beautifully on mobile
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* 1. Step Mockups (How It Works section) */
+  .ss-hr-dash-side {
+    display: none !important; /* Hide mini-sidebar to maximize content area */
+  }
+  
+  .ss-hr-stats-row {
+    grid-template-columns: repeat(2, 1fr) !important; /* Wrap stats to 2x2 grid */
+    gap: 6px !important;
+  }
+  
+  .ss-hr-kanban {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on tablet/mobile */
+    gap: 6px !important;
+  }
+  
+  /* Hide DBMS and Web Dev columns in the mockup to fit perfectly */
+  .ss-hr-kanban-col:nth-child(n+3) {
+    display: none !important;
+  }
+  
+  /* Hide leaderboard and let the main chart take full width to prevent squishing */
+  .ss-hr-perf-leaderboard {
+    display: none !important;
+  }
+  
+  .ss-hr-perf-chart {
+    flex: 1 !important;
+    width: 100% !important;
+  }
+  
+  /* 2. Hero Mockup Welcome Row Wrapping */
+  .ss-dash-welcome-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .ss-dash-welcome-row h3 {
+    width: 100% !important; /* Wrap welcome heading */
+  }
+  
+  .ss-dash-date-badge {
+    margin-left: 0 !important; /* Reset auto margin */
+  }
+}
+
+@media (max-width: 480px) {
+  /* 1. Navbar responsiveness to prevent wrap/overflow */
+  .ss-logo-text {
+    font-size: 0.9rem !important;
+  }
+  
+  .ss-nav-inner {
+    padding: 0 12px !important;
+  }
+  
+  .ss-nav-actions {
+    gap: 6px !important;
+  }
+  
+  .ss-btn-primary-sm {
+    padding: 6px 10px !important;
+    font-size: 0.72rem !important;
+  }
+  
+  .ss-btn-ghost {
+    padding: 6px 8px !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* 2. Step Mockup Table (Step 2) */
+  .ss-hr-table-row {
+    grid-template-columns: 1.8fr 1fr !important; /* Hide Type column, make it 2 columns */
+  }
+  
+  .ss-hr-table-row .ss-hr-emp-dept,
+  .ss-hr-table-row.header span:nth-child(2) {
+    display: none !important;
+  }
+  
+  /* Make header and search elements smaller in step mockups */
+  .ss-hr-dash-search {
+    width: 48px !important;
+  }
+  
+  .ss-hr-dash-head span {
+    font-size: 0.65rem !important;
+  }
+  
+  .ss-hr-stat-val {
+    font-size: 0.65rem !important;
+  }
+  
+  .ss-hr-stat-label {
+    font-size: 0.42rem !important;
+  }
+  
+  /* 3. Hero Mockup Stat Cards */
+  .ss-dash-stats {
+    grid-template-columns: 1fr !important; /* Stack stats in a single column */
+    gap: 8px !important;
+  }
+  
+  /* Hide cards 3 and 4 on small mobile to keep the hero mockup compact and clean */
+  .ss-dash-stat-card:nth-child(n+3) {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Showcase Section Mobile Responsiveness
+   Optimizes the sticky dashboard mockup and the feature list for mobile
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  /* Stack mockup on top and features list below */
+  .ss-showcase-layout {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 0 16px !important;
+  }
+  
+  .ss-showcase-mockup-wrap {
+    position: relative !important; /* No longer sticky when stacked */
+    top: 0 !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 1. Mockup Sidebar & Layout */
+  .ss-showcase-sidebar {
+    display: none !important; /* Hide mockup sidebar to maximize screen space */
+  }
+  
+  .ss-showcase-dash {
+    grid-template-columns: 1fr !important; /* 1 column layout */
+  }
+  
+  /* 2. Mockup Stats Grid */
+  .ss-showcase-stats {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on mobile/tablet */
+    gap: 8px !important;
+  }
+  
+  /* 3. Mockup Charts Grid */
+  .ss-showcase-charts {
+    grid-template-columns: 1fr !important; /* Stack charts vertically */
+    gap: 8px !important;
+  }
+  
+  /* 4. Features List Alignment & Direction (Fixing the right-aligned layout) */
+  .ss-showcase-features {
+    max-height: none !important; /* Let it grow naturally instead of scrollable container on mobile */
+    padding-right: 0 !important;
+  }
+  
+  .ss-showcase-feat {
+    flex-direction: row !important; /* Standard icon-left, text-right flow */
+    text-align: left !important; /* Left align text for natural reading */
+    margin-right: 0 !important; /* Reset desktop margins */
+    margin-left: 0 !important;
+    padding: 16px !important; /* More compact padding */
+  }
+  
+  .ss-showcase-feat-text {
+    width: 100% !important;
+  }
+
+  /* Active indicator line positioning (move from right to left) */
+  .ss-showcase-feat.active::after {
+    left: 0 !important;
+    right: auto !important;
+    top: 10% !important;
+    bottom: 10% !important;
+    width: 4px !important;
+  }
+  
+  /* Slide card slightly right on active instead of left */
+  .ss-showcase-feat.active {
+    transform: translateX(4px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 1. Mockup Stats Grid */
+  .ss-showcase-stats {
+    grid-template-columns: 1fr !important; /* Stack stats in a single column */
+    gap: 8px !important;
+  }
+  
+  /* Hide cards 3 and 4 in mockup to keep the screen extremely clean */
+  .ss-showcase-stat:nth-child(n+3) {
+    display: none !important;
+  }
+  
+  /* 2. Hide Topbar Actions & Welcome Actions to prevent overcrowding */
+  .ss-showcase-topbar .ss-dash-topbar-right,
+  .ss-showcase-welcome .ss-dash-topbar-right {
+    display: none !important;
+  }
+  
+  .ss-showcase-welcome {
+    padding: 8px 12px !important;
+  }
 }
 
 
