@@ -98,27 +98,41 @@ StudyStack isn't just functional — it's designed to feel **premium**.
 
 ## 🛠 Tech Stack
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        FRONTEND                             │
-│                                                             │
-│   React 19  ·  Vite 8  ·  Vanilla CSS  ·  Lucide Icons     │
-│   Clerk React SDK  ·  Glassmorphic Design System            │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│                        BACKEND                              │
-│                                                             │
-│   FastAPI  ·  Uvicorn  ·  Pydantic v2  ·  Python 3.9+      │
-│   Supabase Python Client  ·  python-jose (JWT)              │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│                       DATABASE                              │
-│                                                             │
-│   Supabase (PostgreSQL)  ·  Local JSON fallback adapter     │
-│   Dual-mode: auto-detects cloud vs offline                  │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+<table>
+<tr>
+<td align="center" width="33%">
+
+**Frontend**
+
+![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite_8-646CFF?style=flat-square&logo=vite&logoColor=white)
+![CSS3](https://img.shields.io/badge/Vanilla_CSS-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Lucide](https://img.shields.io/badge/Lucide_Icons-F56565?style=flat-square&logo=feather&logoColor=white)
+![Clerk](https://img.shields.io/badge/Clerk_SDK-6C47FF?style=flat-square&logo=clerk&logoColor=white)
+
+</td>
+<td align="center" width="33%">
+
+**Backend**
+
+![Python](https://img.shields.io/badge/Python_3.9+-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-2C2C2C?style=flat-square&logo=gunicorn&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic_v2-E92063?style=flat-square&logo=pydantic&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT_Auth-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
+
+</td>
+<td align="center" width="33%">
+
+**Database**
+
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON_Fallback-292929?style=flat-square&logo=json&logoColor=white)
+
+</td>
+</tr>
+</table>
 
 ---
 
